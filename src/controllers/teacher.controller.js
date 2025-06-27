@@ -15,9 +15,10 @@ exports.getTeacherById = async (req, res) => {
     }
     res.json(teacher);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to retrieve teacher' });
+   console.error("Error en login:", error); // esto saldrá en consola de Vercel
+  res.status(500).json({ message: error.message, stack: error.stack }); };
   }
-};
+
 
 exports.getTeacherByPassword = async (req, res) => {
   const id = parseInt(req.body.id);
