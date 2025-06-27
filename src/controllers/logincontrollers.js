@@ -7,7 +7,7 @@ exports.login = async (req, res) => {
 
   try {
     const teacher = await prisma.teacher.findMany({
-      where: { id: parseInt(id) },
+      where: { email: usuario },
     });
 
     if (!teacher || teacher[0].password !== password) {
