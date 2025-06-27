@@ -3,7 +3,7 @@ const prisma = new PrismaClient();
 const { generateToken } = require('../../auth');
 
 exports.login = async (req, res) => {
-  const { id, password } = req.body;
+  const { usuario, password } = req.body;
 
   try {
     const teacher = await prisma.teacher.findMany({
